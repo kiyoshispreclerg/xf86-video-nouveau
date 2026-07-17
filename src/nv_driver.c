@@ -20,6 +20,10 @@
  * SOFTWARE.
  */
 
+#ifndef _GNU_SOURCE
+#define _GNU_SOURCE
+#endif
+
 #include <stdio.h>
 #include <fcntl.h>
 
@@ -207,7 +211,7 @@ NVIdentify(int flags)
     family = NVKnownFamilies;
     while(family->name && family->chipset)
     {
-        maxLen = max(maxLen, strlen(family->name));
+        maxLen = MAX(maxLen, strlen(family->name));
         family++;
     }
 
